@@ -1,0 +1,69 @@
+{% extends 'header.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  
+</head>
+<body>
+
+    
+
+
+
+<center>
+    <h1>Signup</h1>
+    {% if msg %}
+    <h4 style="color: blue;">{{msg}}</h4>
+     {% endif %}
+    <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="fname" value="{{user.fname}}"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lname" value="{{user.lname}}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" value="{{user.email}}"></td>
+            </tr>
+            <tr>
+                <td>mobile</td>
+                <td><input type="text" name="mobile" value="{{user.mobile}}"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" ></td>
+            </tr>
+            <tr>
+                <td>Confirom Password</td>
+                <td><input type="password" name="cpassword"></td>
+            </tr>
+            <tr>
+                <td>Profile Picture</td>
+                <td><input type="file" name="profile_pic" ></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea name="address" id="" cols="22" rows="5">{{user.address}}</textarea></td>
+            </tr>
+            <tr>
+                <td colspan="" rowspan=""></td>
+                <td><input type="submit" value="Signin" class="btn btn-primary"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+
+  
+
+</body>
+</html>
+{% endblock %}

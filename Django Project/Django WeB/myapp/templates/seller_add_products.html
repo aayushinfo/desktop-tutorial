@@ -1,0 +1,142 @@
+{% extends 'seller_base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="{% url 'seller_home' %}">Home</a></li>
+				<li class='active'>Add products</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+
+<div class="body-content">
+	<div class="container">
+		<div class="sign-in-page">
+			<div class="row">
+				<!-- Sign-in -->
+
+			</div>
+
+			<div class="col-md-6 col-sm-6 sign-in ">
+				<h4 class="">Add products</h4>
+
+				{% if msg_d %}
+				<p style="color: red; margin-bottom: 20px;">
+					{{msg_d}}
+				</p>
+				{% endif %}
+
+				{% if msg_s %}
+				<p style="color: green; margin-bottom: 20px;">
+					{{msg_s}}
+				</p>
+				{% endif %}
+
+				<div class="row">
+
+
+
+					
+				<form class="register-form outer-top-xs" action="{% url 'seller_add_products' %}" method="post" role="form" ">
+
+					{% csrf_token %}
+
+				<div class=" form-group">
+					<label class="info-title" for="exampleInputEmail1">product name <span>*</span></label>
+					<input type="text" name="product_name" class="form-control unicase-form-control text-input" id="email">
+			    </div>
+
+                <div class=" form-group">
+					<label class="info-title" for="exampleInputEmail1">product price <span>*</span></label>
+					<input type="text" name="product_price" class="form-control unicase-form-control text-input" id="email">
+			    </div>
+                
+                <div class=" form-group">
+					<label class="info-title" for="exampleInputEmail1">product image <span>*</span></label>
+					<input type="file" name="product_image" class="form-control unicase-form-control text-input" id="email">
+			    </div>
+
+                <div class=" form-group">
+					<label class="info-title" for="exampleInputEmail1">stock <span>*</span></label>
+					<input type="text" name="stock" class="form-control unicase-form-control text-input" id="email">
+			    </div>
+
+                <div class=" form-group">
+					<label class="info-title" for="exampleInputEmail1">Enter Description <span>*</span></label>
+					<textarea class="form-control w-100" name="desc" id="desc" cols="30" rows="9"
+                                    placeholder="Enter Description"></textarea>
+			    </div>
+
+                <div class="form-group mt-lg-3">
+                    <button type="submit" class="main_btn">Add Product</button>
+                </div>
+            
+            </form>
+			
+		</div>
+
+		
+        </div>
+		<!-- Sign-in -->
+
+	</div><!-- /.row -->
+</div><!-- /.sigin-in-->
+</div><!-- /.container -->
+
+
+
+<div id="brands-carousel" class="logo-slider">
+    <div class="logo-slider-inner">
+      <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
+        <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand1.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item m-t-10"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand2.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand3.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand4.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand5.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand6.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand2.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand4.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand1.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item-->
+        
+        <div class="item"> <a href="#" class="image"> <img data-echo="{% static 'assets/images/brands/brand5.png' %}" src="{% static 'assets/images/blank.gif' %}" alt=""> </a> </div>
+        <!--/.item--> 
+      </div>
+      <!-- /.owl-carousel #logo-slider --> 
+    </div>
+    <!-- /.logo-slider-inner --> 
+    
+  </div>
+  <!-- /.logo-slider --> 
+  <!-- ============================================== BRANDS CAROUSEL : END ============================================== --> 
+
+
+      <!-- ============================================== INFO BOXES ============================================== -->
+      
+
+<style>
+	.sign-in {
+		margin-left: 25%;
+	}
+</style>
+
+{% endblock content %}
