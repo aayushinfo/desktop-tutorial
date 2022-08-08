@@ -1,0 +1,9 @@
+1. virtuai enviroment : python -m venv myvenv
+2 . VIRTUAL enviroment activate karva nu : myvenv\Scripts\activate
+3. django install karva nu : pip install django
+
+3-A. pachi project create karva no: python startproject myproject
+
+4. pachi admin mate table create karva na : python manage.py migrate
+5. pachi admin mate id password create karva no : python manage.py createsuperuser
+6. pachi app create karva ni : python manage.py startapp myapp
