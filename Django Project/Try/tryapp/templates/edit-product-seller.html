@@ -1,0 +1,90 @@
+{% extends 'seller_base.html' %}
+ 
+{% block content %}
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>Edit Product</h2>
+                    <p>Very us move be blessed multiply night</p>
+                </div>
+                <div class="page_link">
+                    <a href="#">Seller's Home</a>
+                    <a href="#">Edit Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!-- ================ contact section start ================= -->
+<section class="section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Edit {{product.product_name}} here!</h2>
+                {% if msg_d %}
+                <p style="color: red; margin-bottom: 20px">{{msg_d}}</p>
+                {% endif %} 
+                {% if msg_s %}
+                <p style="color: green; margin-bottom: 20px">{{msg_s}}</p>
+                {% endif %}
+                {% if msg_w %}
+                <p style="color: orange; margin-bottom: 20px">{{msg_w}}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <form class="form-contact contact_form" action="{% url 'edit_product_seller' pk=product.pk %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" name="product_name" id="product_name" type="text"
+                                placeholder="Product Name" value="{{product.product_name}}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" name="product_price" 
+                                placeholder="Product Price" id="product_price" type="number"
+                                value="{{product.product_price}}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" name="product_image" id="product_image" type="file"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control"
+                                placeholder="Product Stock" name="stock" id="stock" type="number" min="1"
+                                value="{{product.stock}}" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control w-100" name="desc" id="desc" cols="30" rows="9"
+                                    placeholder="Enter Description">{{product.desc}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-lg-3">
+                        <button type="submit" class="main_btn">Update Product</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-4">
+                <img src="{{product.product_image.url}}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ contact section end ================= -->
+{% endblock content %}
+
+

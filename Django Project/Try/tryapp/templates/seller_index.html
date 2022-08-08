@@ -1,0 +1,66 @@
+{% extends 'seller_base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .img-fluid{
+    height:564px;
+  }
+</style>
+
+  <!--================ Feature Product Area =================-->
+  <section class="feature_product_area section_gap_bottom_custom" style="margin-top: 80px;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>Your Products</span></h2>
+            <p>Bring called seed first of third give itself now ment</p>
+          </div>
+        </div>
+      </div>
+
+      {% if products %}
+
+      <div class="row">
+        {% for i in products %}
+        <div class="col-lg-4 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="{{i.product_image.url}}" alt="" />
+              <div class="p_icon">
+                <a href="{% url 'view_product_seller' pk=i.pk %}">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="{% url 'edit_product_seller' pk=i.pk %}">
+                  <i class="ti-pencil"></i>
+                </a>
+                <a href="{% url 'delete_product_seller' pk=i.pk %}">
+                  <i class="ti-trash"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>{{i.product_name}}</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">₹ {{i.product_price}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% else %}
+      <div>
+        <h3>No products found</h3>
+        <hr>
+        <a href="{% url 'add_product' %}"> Add products here!</a>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  <!--================ End Feature Product Area =================-->
+
+{% endblock content %}
